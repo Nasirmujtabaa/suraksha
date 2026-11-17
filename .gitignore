@@ -1,0 +1,32 @@
+
+# Streamlit secrets - NEVER upload API keys
+.streamlit/secrets.toml
+
+# Python virtual environments
+venv/
+.venv/
+.venv312/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# IDE and system files
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Evaluation output (keep local unless intentionally sharing)
+results.csv
