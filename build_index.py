@@ -6,13 +6,21 @@ import re
 import sys
 from pathlib import Path
 
+<<<<<<< HEAD
 from langchain_community.document_loaders import PyPDFDirectoryLoader
+=======
+from langchain_community.document_loaders import PyPDFLoader
+>>>>>>> 9beb21ba364f7ab353e9dfc39faca90610adecc8
 from langchain_community.vectorstores import FAISS
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 import rag
 
+<<<<<<< HEAD
 DATA_DIR = Path(__file__).parent / "data"
+=======
+ROOT = Path(__file__).parent  # PDFs may be in data/ OR next to app.py
+>>>>>>> 9beb21ba364f7ab353e9dfc39faca90610adecc8
 
 
 def clean(text: str) -> str:
@@ -24,12 +32,24 @@ def clean(text: str) -> str:
 
 
 def main():
+<<<<<<< HEAD
     pdfs = list(DATA_DIR.rglob("*.pdf"))
     if not pdfs:
         sys.exit("No PDFs found in data/. Add your safety manuals there first.")
     print(f"Found {len(pdfs)} PDF(s): {[p.name for p in pdfs]}")
 
     pages = PyPDFDirectoryLoader(str(DATA_DIR), recursive=True).load()
+=======
+    pdfs = [p for p in ROOT.rglob("*")
+            if p.suffix.lower() == ".pdf" and ".venv" not in p.parts]
+    if not pdfs:
+        sys.exit("No PDF files found in the repo. Upload your safety manuals (PDF).")
+    print(f"Found {len(pdfs)} PDF(s): {[p.name for p in pdfs]}")
+
+    pages = []
+    for pdf in pdfs:
+        pages.extend(PyPDFLoader(str(pdf)).load())
+>>>>>>> 9beb21ba364f7ab353e9dfc39faca90610adecc8
 
     docs, empty = [], 0
     for p in pages:
