@@ -43,7 +43,7 @@ Suraksha is a Retrieval-Augmented Generation (RAG) based application designed to
 The project includes an evaluation script and a set of sample questions. Refer to `evaluate.py` and `questions.csv`.
 
 ## Author
-[Your Name]
+Nasir Mujtaba
 
 ## License
 For academic and educational purposes.
